@@ -1,5 +1,5 @@
 # Hotel_Booking_System
-Hotel Reservation Database Management System
+Hotel Reservation Database Management System / Group Project
 
 
 -A website was created where the customer registered and preferred
