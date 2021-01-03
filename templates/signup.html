@@ -1,0 +1,97 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotel Reservation</title>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/signup.css">
+
+</head>
+
+<body background="./static/images/login_background.png">
+
+    <header class="header">
+
+        <div class="container">
+
+            <nav class="nav">
+                <a href="/" class="logo">
+                    <img src="./static/images/LOGO4.png" alt="">
+                </a>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times"></i>
+
+                </div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="reservation" class="nav-link">Rezervasyon</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact" class="nav-link">İletişim</a>
+                    </li>
+                    {% if session ["logged_in"] %}
+                    <li class="nav-item">
+                        <a href="logout" class="nav-link">Çıkış Yap</a>
+                    </li>
+                    {% else %}
+
+
+                    <li class="nav-item">
+                        <a href="logn" class="nav-link">Giriş Yap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="signup" class="nav-link">Kaydol</a>
+                    </li>
+                    {% endif %}
+                    <a href="javascript:void(0)" class="icon" onclick="responsiveMenu()">&#9776;</a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div background="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&w=1000&q=80" alt="" class="hero">
+
+            <div id="login-box">
+                <div class="left-box">
+                    <h1> Kaydol</h1>
+                    {% from "includes/formhelpers.html" import render_field %}
+                    <form action="{{url_for('signup')}}" method="post">
+
+                        <input type="text" , name="Fname" placeholder="Ad" />
+                        <input type="text" , name="Lname" placeholder="Soyad" />
+                        <input type="text" , name="Email" placeholder="Email" />
+                        <input type="text" , name="Username" placeholder="Kullanici Adi" />
+                        <input type="password" , name="Password" placeholder="Parola" />
+                        <input type="password" , name="Confirm" placeholder="Parola Dogrulama" />
+
+                        <input type="submit" , name="signup-button" value="Kaydol" /> {{ form.csrf_token }}
+                    </form>
+                </div>
+                <div style="background-image: url('static/images/login_background.png');" ">
+                    <div class="right-box ">
+                        <span class="signinwith "><br/>Sosyal Hesap</span>
+                        <button class="social facebook "> Facebook ile Gir </button>
+                        <button class="social twitter "> Twitter ile Gir </button>
+                        <button class="social google "> Google+ ile Gir </button>
+                    </div>
+                </div>
+                <div class="or ">Veya</div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="static/css/main.js "></script>
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>İletişim</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+<!--===============================================================================================-->
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+<header class="header">
+
+        <div class="container">
+
+            <nav class="nav">
+                <a href="/" class="logo">
+                    <img src="./static/images/LOGO4.png" alt="">
+                </a>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times"></i>
+
+                </div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="reservation" class="nav-link">Rezervasyon</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact" class="nav-link">İletişim</a>
+                    </li>
+                    {% if session ["logged_in"] %}
+                    <li class="nav-item">
+                        <a href="logout" class="nav-link">Çıkış Yap</a>
+                    </li>
+                    {% else %}
+
+
+                    <li class="nav-item">
+                        <a href="logn" class="nav-link">Giriş Yap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="signup" class="nav-link">Kaydol</a>
+                    </li>
+                    {% endif %}
+                    <a href="javascript:void(0)" class="icon" onclick="responsiveMenu()">&#9776;</a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<main>
+	<div class="bg-container-contact100" style="background-image: url(static/images/hero_background.jpg);">
+		<div class="contact100-header flex-sb-m">
+			<a href="/" class="contact100-header-logo">
+				<img src="static/images/icons/logo.png" alt="LOGO">
+			</a>
+
+			
+		</div>
+	</div>
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<button class="btn-hide-contact100">
+				<i class="zmdi zmdi-close"></i>
+			</button>
+
+			<div class="contact100-form-title" ">
+				<span>Bizimle iletişime geçin</span>
+			</div>
+
+			<form class="contact100-form validate-form" action="{{url_for('contact')}}" method="post">
+				<div class="wrap-input100 validate-input">
+					<input id="name" class="input100" type="text" name="Name" placeholder="Ad Soyad">
+					<span class="focus-input100"></span>
+					<label class="label-input100" for="Name">
+						<span class="lnr lnr-user m-b-2"></span>
+					</label>
+				</div>
+
+
+				<div class="wrap-input100 validate-input">
+					<input id="email" class="input100" type="text" name="Email" placeholder="Örn. ornek@email.com">
+					<span class="focus-input100"></span>
+					<label class="label-input100" for="Email">
+						<span class="lnr lnr-envelope m-b-5"></span>
+					</label>
+				</div>
+
+
+				<div class="wrap-input100 validate-input">
+					<input id="phone" class="input100" type="text" name="Phone" placeholder="Örn. 0535 000000">
+					<span class="focus-input100"></span>
+					<label class="label-input100" for="Phone">
+						<span class="lnr lnr-smartphone m-b-2"></span>
+					</label>
+				</div>
+
+
+				<div class="wrap-input100 validate-input">
+					<textarea id="message" class="input100" name="Messages" placeholder="Mesajınız.."></textarea>
+					<span class="focus-input100"></span>
+					<label class="label-input100 rs1" for="Messages">
+						<span class="lnr lnr-bubble"></span>
+					</label>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						Şimdi Gönder
+					</button>
+				</div>
+                {{ form.csrf_token }}
+			</form>
+		</div>
+	</div>
+
+</main>
+
+<!--===============================================================================================-->
+	<script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/bootstrap/js/popper.js"></script>
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="static/css/main2.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+	</script>
+</body>
+</html>

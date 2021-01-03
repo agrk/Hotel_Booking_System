@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Giriş Yap</title>
+    <link rel="stylesheet" href="static/css/logn.css"> {% from "includes/formhelpers.html" import render_field %}
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">-->
+</head>
+
+<body>
+    <div class="center">
+        <div class="header">
+            Giriş Yap</div>
+        <form action="{{url_for('logn')}}" method="post">
+
+            <input type="text" , name="Username" , placeholder="Kullanıcı Adı">
+            <i class="far fa-envelope"></i>
+            <input id="pswrd" type="password" , name="Password" , placeholder="Parola">
+            <i class="fas fa-lock" onclick="show()"></i>
+            <input type="submit" value="Giriş">  
+            {{ form.csrf_token }}
+            <a href="#">Şifremi Unuttum?</a>
+    </div>
+    <script>
+        function show() {
+            var pswrd = document.getElementById('pswrd');
+            var icon = document.querySelector('.fas');
+            if (pswrd.type === "password") {
+                pswrd.type = "text";
+                pswrd.style.marginTop = "20px";
+                icon.style.color = "#7f2092";
+            } else {
+                pswrd.type = "password";
+                icon.style.color = "grey";
+            }
+        }
+    </script>
+    </form>
+
+</body>
+
+</html>

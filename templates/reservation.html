@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Hotel Reservation</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="static/css/style2.css" />
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="static/vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/css/styles.css">
+
+
+
+</head>
+
+<body>
+    <header class="header">
+
+        <div class="container">
+
+            <nav class="nav">
+                <a href="/" class="logo">
+                    <img src="./static/images/LOGO4.png" alt="">
+                </a>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times"></i>
+
+                </div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="reservation" class="nav-link">Rezervasyon</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact" class="nav-link">İletişim</a>
+                    </li>
+                    {% if session ["logged_in"] %}
+                    <li class="nav-item">
+                        <a href="logout" class="nav-link">Çıkış Yap</a>
+                    </li>
+                    {% else %}
+
+
+                    <li class="nav-item">
+                        <a href="logn" class="nav-link">Giriş Yap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="signup" class="nav-link">Kaydol</a>
+                    </li>
+                    {% endif %}
+                    <a href="javascript:void(0)" class="icon" onclick="responsiveMenu()">&#9776;</a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="booking-cta">
+                            <h1>Rezervasyon Yap</h1>
+                            <p>Güvenli ve huzurlu bir tatil geçirmeniz dileğiyle..</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-1">
+                        <div class="booking-form">
+                            <form action="{{url_for('reservation')}}" method="post">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input class="form-control" type="text">
+                                            <span class="form-label">Ad Soyad</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input class="form-control" type="email">
+                                            <span class="form-label">Email</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input class="form-control" type="tel">
+                                            <span class="form-label">Telefon</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Oda</span>
+                                            <select class="form-control">
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+											</select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Kişi Sayısı</span>
+                                            <select class="form-control">
+												<option>1 Kişi</option>
+												<option>2 Kişi</option>
+												<option>3 Kişi</option>
+											</select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input class="form-control" type="date" required>
+                                            <span class="form-label">Giriş Tarihi</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input class="form-control" type="date" required>
+                                            <span class="form-label">Çıkış Tarihi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-btn">
+                                    <button class="submit-btn">Rezervasyonu Tamamla</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/css/jquery.min.js"></script>
+    <script>
+        $('.form-control').each(function() {
+            floatedLabel($(this));
+        });
+
+        $('.form-control').on('input', function() {
+            floatedLabel($(this));
+        });
+
+        function floatedLabel(input) {
+            var $field = input.closest('.form-group');
+            if (input.val()) {
+                $field.addClass('input-not-empty');
+            } else {
+                $field.removeClass('input-not-empty');
+            }
+        }
+    </script>
+
+</body>
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>

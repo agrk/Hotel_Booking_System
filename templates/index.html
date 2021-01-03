@@ -1,0 +1,221 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotel Reservation</title>
+
+    <!--Font awesome CDN-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/" class="logo">
+                    <img src="./static/images/LOGO4.png" alt="">
+                </a>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times"></i>
+
+                    <div class="clear"></div>
+                </div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="reservation" class="nav-link">Rezervasyon</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact" class="nav-link">İletişim</a>
+                    </li>
+                    {% if session ["logged_in"] %}
+                    <li class="nav-item">
+                        <a href="logout" class="nav-link">Çıkış Yap</a>
+                    </li>
+                    {% else %}
+
+
+                    <li class="nav-item">
+                        <a href="logn" class="nav-link">Giriş Yap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="signup" class="nav-link">Kaydol</a>
+                    </li>
+                    {% endif %}
+                    <a href="javascript:void(0)" class="icon" onclick="responsiveMenu()">&#9776;</a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="hero">
+
+            <img src="./static/images/hero_background.jpg" alt="" class="hero">
+            <div class="container">
+                <div class="main-heading">
+                    <h1 class="title">Otel Rezervasyon Sistemine HOŞGELDİNİZ</h1>
+                    <!--<h2 class="subtitle">Otel Odaları</h2>-->
+                    <div class="clear"></div>
+                </div>
+                <a href="#" class="btn btn-gradient">Şimdi Keşfet
+                <span class="dots"><i class="fas fa-ellipsis-h"></i></span>
+
+
+            </a>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+
+        <section class="hotels">
+            <div class="container">
+                <h5 class="section-head">
+                    <span class="heading">KEŞFET</span>
+                    <span class="sub-heading">Odalarımız</span>
+                </h5>
+                <div class="grid">
+                    <div class="grid-item featured-hotels">
+                        <img src="./static/images/room4.jpeg" alt="" class="hotel-image">
+                        <h5 class="hotel-name">Suit Oda</h5>
+                        <span class="hotel-price">200tl / Gecelik   </span>
+                        <div class="hotel-rating">
+                            <i class="fas fa-star rating"></i>
+                            <i class="fas fa-star rating"></i>
+                            <i class="fas fa-star rating"></i>
+                            <i class="fas fa-star rating"></i>
+                            <i class="fas fa-star-half rating"></i>
+                        </div>
+                        <a href="reservation" class="btn btn-gradient">Rezervasyon Yap
+                        <span class="dots"><i class="fas fa-ellipsis-h"></i> </span>
+                    </a>
+                    </div>
+                </div>
+                <div class="grid-item featured-hotels">
+                    <img src="./static/images/room3.jpeg" alt="" class="hotel-image">
+                    <h5 class="hotel-name">2 Kişilik Oda</h5>
+                    <span class="hotel-price">100tl / Gecelik </span>
+                    <div class="hotel-rating">
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star-half rating"></i>
+                    </div>
+                    <a href="reservation" class="btn btn-gradient">Rezervasyon Yap
+                        <span class="dots"><i class="fas fa-ellipsis-h"></i> </span>
+                    </a>
+                </div>
+                <div class="grid-item featured-hotels">
+                    <img src="./static/images/room_5.jpg" alt="" class="hotel-image">
+                    <h5 class="hotel-name">Tek Kişilik Oda</h5>
+                    <span class="hotel-price">80tl / Gecelik</span>
+                    <div class="hotel-rating">
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star-half rating"></i>
+                    </div>
+                    <a href="reservation" class="btn btn-gradient">Rezervasyon Yap
+                    <span class="dots"><i class="fas fa-ellipsis-h"></i> </span>
+                </a>
+                </div>
+                <div class="grid-item featured-hotels">
+                    <img src="./static/images/room6.jpeg" alt="" class="hotel-image">
+                    <h5 class="hotel-name">Aile Odası</h5>
+                    <span class="hotel-price">150tl / Gecelik</span>
+                    <div class="hotel-rating">
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star-half rating"></i>
+                    </div>
+                    <a href="reservation" class="btn btn-gradient">Rezervasyon Yap
+                <span class="dots"><i class="fas fa-ellipsis-h"></i> </span>
+            </a>
+                </div>
+                <div class="grid-item featured-hotels">
+                    <img src="./static/images/room_6.jpg" alt="" class="hotel-image">
+                    <h5 class="hotel-name">Kral Dairesi</h5>
+                    <span class="hotel-price">500tl / Gecelik</span>
+                    <div class="hotel-rating">
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                    </div>
+                    <a href="reservation" class="btn btn-gradient">Rezervasyon Yap
+                <span class="dots"><i class="fas fa-ellipsis-h"></i> </span>
+            </a>
+                </div>
+            </div>
+        </section>
+        <section class="offer">
+            <div class="container">
+                <div class="offer-content">
+                    <div class="discount">
+                        40% off
+                    </div>
+                    <h5 class="hotel-name">Suit Oda</h5>
+                    <div class="hotel-rating">
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star-half rating"></i>
+                    </div>
+                    <p class="paragraph">
+                        otel veya oda hakkındaki bilgileri buraya yazacağız, kalacak kişiye sağladığı imkanlar mesela
+                    </p>
+                    <a href="contact" class="btn btn-gradient">Bilgi Al
+                    <span class="dots"><i class="fas fa-ellipsis-h"></i> </span>
+                </a>
+                </div>
+            </div>
+        </section>
+        <section class="offer2">
+            <div class="container2">
+                <div class="offer-content2">
+                    <div class="discount2">
+                        80% off
+                    </div>
+                    <h5 class="hotel-name">Kral Oda</h5>
+                    <div class="hotel-rating">
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star rating"></i>
+                        <i class="fas fa-star-half rating"></i>
+                    </div>
+                    <p class="paragraph2">
+                        otel veya oda hakkındaki bilgileri buraya yazacağız, kalacak kişiye sağladığı imkanlar mesela
+                    </p>
+                    <a href="contact" class="btn btn-gradient">Bilgi Al
+                        <span class="dots"><i class="fas fa-ellipsis-h"></i> </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+
+
+    </main>
+
+    <script src="static/css/main.js"></script>
+
+
+
+</body>
+
+</html>
